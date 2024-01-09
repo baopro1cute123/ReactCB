@@ -7,7 +7,8 @@ class MyComponents extends React.Component{
         channel: "HoiDanIT"
     }
     handleonChangeName = (event) =>{
-        this.setState({
+        //merge hàm setState cập nhật biến state
+        this.setState1({
             name: event.target.value
         })
     }
