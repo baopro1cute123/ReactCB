@@ -3,34 +3,44 @@ import React from 'react';
 class MyComponents extends React.Component{
     
     state = {
-        name : "Bảo",
-        channel: "HoiDanIT"
+       firstName : '',
+       lastName : '',
     }
-    handleonChangeName = (event) =>{
-        //merge hàm setState cập nhật biến state
-        this.setState1({
-            name: event.target.value
+    handleChangeFirstName = (event) =>{
+        this.setState({
+            firstName: event.target.value
         })
     }
-
-    handleclickButton = () => {
-        alert("click me!")
+    handleChangeLastName = (event) =>{
+        this.setState({
+            lastName : event.target.value
+        })
+    }
+    handleSumit = (event)=> {
+        event.preventDefault() // hàm ngăn chặn reset web
+        console.log('>>>checkdata' , this.state)
     }
 // this đang gọi đến biến state trong class
     render(){
 
         return (
             <>
-            <div> 
-            <input value={this.state.name} type='text'
-            onChange={(event)=> this.handleonChangeName(event)}></input>
-             My name is{this.state.name}</div>
-            <div>Học ReactJS tại youtube {this.state.channel}</div>
-            <div className='third'>
-                <button onClick={()=> this.handleclickButton()}>
-                    click me
-                </button>
-            </div>
+           <form >
+                <label htmlFor="fname">First name:</label><br/>
+                <input 
+                type="text"  
+                value={this.state.firstName}
+                onChange={(event)=> this.handleChangeFirstName(event)}
+                /><br/>
+                <label htmlFor="lname">Last name:</label><br/>
+                <input type="text"  
+                value={this.state.lastName}
+                onChange={(event)=> this.handleChangeLastName(event)}
+                /><br/><br/>
+                <input type="submit" 
+                    onClick={(event)=>this.handleSumit(event) }
+                />
+            </form> 
             </>
         )
     }
