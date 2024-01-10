@@ -1,5 +1,4 @@
 import './App.scss';
-import ChildComponent from './Example/ChildComponent';
 import MyComponents from './Example/MyComponents';
  function App() {
   return (
@@ -7,9 +6,6 @@ import MyComponents from './Example/MyComponents';
     <div className="App-header">
       <h3>Xin chào</h3>
       <MyComponents />
-      
-      <ChildComponent name={'child1 two'}/>
-
       </div>
     </div>
   );
