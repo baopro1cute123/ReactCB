@@ -21,12 +21,20 @@ class MyComponents extends React.Component{
        ]
     }
  
+    addNewJob = (job) => {
+        this.setState({
+            arrJobs: [...this.state.arrJobs, job]
+        })
+        console.log("check job", job)
+    }
 // this đang gọi đến biến state trong class
     render(){
 
         return (
             <>
-            <AddComponent/>
+            <AddComponent
+                addNewJob= {this.addNewJob}
+            />
            
             <ChildComponent 
      
