@@ -23,9 +23,17 @@ class MyComponents extends React.Component{
  
     addNewJob = (job) => {
         this.setState({
-            arrJobs: [...this.state.arrJobs, job]
+            arrJobs: [...this.state.arrJobs, job]  // ghép mảng job và arrJobs
         })
         console.log("check job", job)
+    }
+    deleteAJob = (job) => {
+        let currenJobs = this.state.arrJobs;// item để gọi thay mảng
+        currenJobs = currenJobs.filter(item => item.id !== job.id) //lọc những phần tử có id của iteam khác với id của job
+        this.setState({
+            arrJobs: currenJobs
+        })
+        
     }
 // this đang gọi đến biến state trong class
     render(){
@@ -39,6 +47,8 @@ class MyComponents extends React.Component{
             <ChildComponent 
      
       arrJobs={this.state.arrJobs}
+      deleteAJob = {this.deleteAJob}
+
       />
             </>
         )

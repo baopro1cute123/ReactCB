@@ -13,6 +13,10 @@
                 }
             );
         }
+        handleOnclickDelete = (job) => {
+            this.props.deleteAJob(job)
+
+        }
     
         render(){
             console.log("check data" , this.props)
@@ -32,7 +36,7 @@
                 {Array.isArray(arrJobs) &&
                     arrJobs.map((item, index) => (
                     <div key={item.id}>
-                        {item.title}-{item.salary}
+                        {item.title}-{item.salary} <span onClick={()=> this.handleOnclickDelete(item)}>X</span>
                     </div>
                     ))}
                 </div>

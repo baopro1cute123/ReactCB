@@ -23,9 +23,9 @@ class AddComponent extends React.Component{
             return ;
          }
          console.log('>>>checkdata' , this.state)
-         this.props.addNewJob({
+         this.props.addNewJob({ // hàm addNewJob được lấy từ props
             id : Math.floor(Math.random()*1001),
-            title: this.state.title,
+            title: this.state.title, //lấy dữ liệu từ nhập vào từ value input
             salary: this.state.salary,
          })
          this.setState({
