@@ -1,32 +1,39 @@
-import { ToastContainer, toast } from 'react-toastify';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
-import ListTodo from './Todos/ListTodo';
-  // import MyComponents from './Example/MyComponents';
- function App() {
+import Home from './Example/Home';
+import NavComponent from './Nav/NavComponent';
+import ListTodo from "./Todos/ListTodo";
+
+function App() {
   return (
-    <div className="App">
-    <div className="App-header">
-      <h3>Xin chào TODOS-APP</h3>
-      {/* <MyComponents /> */}
-      <ListTodo/>
+    <BrowserRouter>
+      <div className="App">
+        <div className="App-header">
+          <NavComponent />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<Home />} />
+            <Route path="/todo" element={<ListTodo />} />
+          </Routes>
+        </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-            />
-            {/* Same as */}
-          <ToastContainer />
-    </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

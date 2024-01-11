@@ -87,6 +87,8 @@ class ListTodo extends React.Component{
         return (
             <>  
             <div className='list-todo-container'>
+            <h3>Xin chào TODOS-APP</h3>
+
                <AddTodo addNewToDo={this.addNewToDo}/>
                 <div className='list-todo-content'>
                 {listTodos && listTodos.length > 0 &&
