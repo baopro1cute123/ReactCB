@@ -4,7 +4,6 @@ import ChildComponent from './ChildComponent';
 class MyComponents extends React.Component{
     
     state = {
-      
        arrJobs : [
         { id : 'Job1',
           title : 'developer',
@@ -34,6 +33,9 @@ class MyComponents extends React.Component{
             arrJobs: currenJobs
         })
         
+    }
+    componentDidMount(){
+        console.log("run componentDidMount")
     }
 // this đang gọi đến biến state trong class
     render(){

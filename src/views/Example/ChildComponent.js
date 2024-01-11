@@ -20,19 +20,17 @@
     
         render(){
             console.log("check data" , this.props)
-            let {name, age, arrJobs} = this.props ;
-            let {showJobs} = this.state ;
+            let { arrJobs} = this.props ; //nhận dữ liệu từ Mycomponents
+            let {showJobs} = this.state ; //state được khai báo phía trên
             let check = showJobs === true ? 'true' : 'false';
             console.log("check", check)
             return (
                 <>
-            <div>Hello my child component {name}</div>
-            <div>{age} year olds</div>
             {showJobs === false ?
                 <div><button onClick={()=>this.handleClick()}>Show</button></div>
             :
             <>
-            <div className='job-lists'> 
+            <div className='job-lists'>
                 {Array.isArray(arrJobs) &&
                     arrJobs.map((item, index) => (
                     <div key={item.id}>
