@@ -6,6 +6,7 @@ import './App.scss';
 import Home from './Example/Home';
 import NavComponent from './Nav/NavComponent';
 import ListTodo from "./Todos/ListTodo";
+import ListUser from "./User/ListUser";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
+            <Route path="/user" element={<ListUser />} />
           </Routes>
         </div>
         <ToastContainer
