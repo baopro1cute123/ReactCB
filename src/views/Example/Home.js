@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import HocColor from "../HOC/HocColor";
 
 class Home extends React.Component {
@@ -10,9 +11,14 @@ class Home extends React.Component {
 //   }
 
   render() {
-    console.log("check props", this.props);
+    console.log("check data redux", this.props.dataRedux);
     return <div>Hello My WEBSITE </div>;
   }
 }
 
-export default HocColor(Home);
+const mapStateToProps = (state) => {
+  return {dataRedux : state.users } //state.user bên rootRedurs
+}
+
+export default connect(mapStateToProps)(HocColor(Home));
+// trong Home kết nối với redux

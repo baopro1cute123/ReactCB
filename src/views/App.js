@@ -4,11 +4,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import Home from "./Example/Home";
+import MyComponents from "./Example/MyComponents";
 import NavComponent from './Nav/NavComponent';
 import ListTodo from './Todos/ListTodo';
 import DetailUser from "./User/DetailUser";
 import ListUser from "./User/ListUser";
-
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +26,7 @@ function App() {
               <ListUser />
             </Route>
             <Route path="/about">
-              <Home />
+              <MyComponents/>
             </Route>
             <Route path="/" exact>
               <Home />
