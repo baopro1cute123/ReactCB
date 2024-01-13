@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
-import Home from './Example/Home';
+import Home from "./Example/Home";
 import NavComponent from './Nav/NavComponent';
-import ListTodo from "./Todos/ListTodo";
+import ListTodo from './Todos/ListTodo';
+import DetailUser from "./User/DetailUser";
 import ListUser from "./User/ListUser";
 
 function App() {
@@ -14,12 +15,23 @@ function App() {
       <div className="App">
         <div className="App-header">
           <NavComponent />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<Home />} />
-            <Route path="/todo" element={<ListTodo />} />
-            <Route path="/user" element={<ListUser />} />
-          </Routes>
+          <Switch>
+            <Route path="/todo">
+              <ListTodo />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
+            </Route>
+            <Route path="/user" exact>
+              <ListUser />
+            </Route>
+            <Route path="/about">
+              <Home />
+            </Route>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+          </Switch>
         </div>
         <ToastContainer
           position="top-right"
